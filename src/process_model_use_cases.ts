@@ -22,6 +22,7 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
 
   constructor(
     correlationService: ICorrelationService,
+    // TODO: Must be replaced with the service, as soon as it supports the methods we need here.
     externalTaskRepository: IExternalTaskRepository,
     flowNodeInstanceService: IFlowNodeInstanceService,
     iamService: IIAMService,
