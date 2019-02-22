@@ -36,13 +36,13 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
     this._processModelService = processModelService;
   }
 
-  public async getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Model.Types.Process> {
+  public async getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Model.Process> {
 
     const correlation: Correlation = await this._correlationService.getByProcessInstanceId(identity, processInstanceId);
 
     const correlationProcessModel: CorrelationProcessInstance = correlation.processModels.pop();
 
-    const processModel: Model.Types.Process =
+    const processModel: Model.Process =
       await this._processModelService.getByHash(identity, correlationProcessModel.processModelId, correlationProcessModel.hash);
 
     return processModel;
@@ -63,7 +63,7 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
    return this._processModelService.persistProcessDefinitions(identity, name, xml, overwriteExisting);
   }
 
-  public async getProcessModelById(identity: IIdentity, processModelId: string): Promise<Model.Types.Process> {
+  public async getProcessModelById(identity: IIdentity, processModelId: string): Promise<Model.Process> {
     return this._processModelService.getProcessModelById(identity, processModelId);
   }
 
@@ -71,11 +71,11 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
     return this._processModelService.getProcessDefinitionAsXmlByName(identity, name);
   }
 
-  public async getByHash(identity: IIdentity, processModelId: string, hash: string): Promise<Model.Types.Process> {
+  public async getByHash(identity: IIdentity, processModelId: string, hash: string): Promise<Model.Process> {
     return this._processModelService.getByHash(identity, processModelId, hash);
   }
 
-  public async getProcessModels(identity: IIdentity): Promise<Array<Model.Types.Process>> {
+  public async getProcessModels(identity: IIdentity): Promise<Array<Model.Process>> {
     return this._processModelService.getProcessModels(identity);
   }
 }
