@@ -17,7 +17,7 @@
     "@process-engine/correlation.contracts": "^1.0.0",
     "@process-engine/external_task_api_contracts": "^1.0.0",
     "@process-engine/flow_node_instance.contracts": "^1.0.0",
-    "@process-engine/process_model.contracts": "^1.0.0",
+    "@process-engine/process_model.contracts": "feature~refactor_model_namespace",
     "bluebird-global": "^1.0.1"
   },
   "devDependencies": {
