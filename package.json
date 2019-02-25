@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://www.npmjs.com"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Contains the UseCase layer for the ProcessModel API.",
   "license": "MIT",
   "main": "dist/commonjs/index.js",
@@ -17,7 +17,7 @@
     "@process-engine/correlation.contracts": "^1.0.0",
     "@process-engine/external_task_api_contracts": "^1.0.0",
     "@process-engine/flow_node_instance.contracts": "^1.0.0",
-    "@process-engine/process_model.contracts": "^1.0.0",
+    "@process-engine/process_model.contracts": "^2.0.0",
     "bluebird-global": "^1.0.1"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "@types/sequelize": "^4.27.32",
     "gulp": "^4.0.0",
     "gulptraum": "^3.0.0",
-    "gulptraum-typescript": "^2.0.0",
+    "gulptraum-typescript": "^3.0.0",
     "moment": "^2.22.2",
     "tsconfig": "^7.0.0",
     "tslint": "^5.11.0",
