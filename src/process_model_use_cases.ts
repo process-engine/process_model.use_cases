@@ -40,7 +40,7 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
 
     const correlation: Correlation = await this._correlationService.getByProcessInstanceId(identity, processInstanceId);
 
-    const correlationProcessModel: CorrelationProcessInstance = correlation.processModels.pop();
+    const correlationProcessModel: CorrelationProcessInstance = correlation.processInstances.pop();
 
     const processModel: Model.Process =
       await this._processModelService.getByHash(identity, correlationProcessModel.processModelId, correlationProcessModel.hash);
