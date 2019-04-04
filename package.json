@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://www.npmjs.com"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Contains the UseCase layer for the ProcessModel API.",
   "license": "MIT",
   "main": "dist/commonjs/index.js",
@@ -14,7 +14,7 @@
   "dependencies": {
     "@essential-projects/iam_contracts": "^3.4.1",
     "@essential-projects/errors_ts": "^1.4.3",
-    "@process-engine/correlation.contracts": "^1.0.0",
+    "@process-engine/correlation.contracts": "^2.0.0",
     "@process-engine/external_task_api_contracts": "^1.0.0",
     "@process-engine/flow_node_instance.contracts": "^1.0.0",
     "@process-engine/process_model.contracts": "^2.0.0",
