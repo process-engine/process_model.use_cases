@@ -10,6 +10,8 @@ import {
   ProcessDefinitionFromRepository,
 } from '@process-engine/process_model.contracts';
 
+const canDeleteProcessModel = 'can_delete_process_model';
+
 export class ProcessModelUseCases implements IProcessModelUseCases {
 
   private readonly correlationService: ICorrelationService;
@@ -17,8 +19,6 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
   private readonly flowNodeInstanceService: IFlowNodeInstanceService;
   private readonly iamService: IIAMService;
   private readonly processModelService: IProcessModelService;
-
-  private canDeleteProcessModel = 'can_delete_process_model';
 
   constructor(
     correlationService: ICorrelationService,
@@ -49,7 +49,7 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
   }
 
   public async deleteProcessModel(identity: IIdentity, processModelId: string): Promise<void> {
-    await this.iamService.ensureHasClaim(identity, this.canDeleteProcessModel);
+    await this.iamService.ensureHasClaim(identity, canDeleteProcessModel);
 
     await this.processModelService.deleteProcessDefinitionById(processModelId);
     await this.correlationService.deleteCorrelationByProcessModelId(identity, processModelId);
