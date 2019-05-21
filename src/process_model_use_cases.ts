@@ -11,6 +11,7 @@ import {
 } from '@process-engine/process_model.contracts';
 
 const canDeleteProcessModel = 'can_delete_process_model';
+const superAdminClaim = 'can_manage_process_instances';
 
 export class ProcessModelUseCases implements IProcessModelUseCases {
 
@@ -49,7 +50,7 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
   }
 
   public async deleteProcessModel(identity: IIdentity, processModelId: string): Promise<void> {
-    await this.iamService.ensureHasClaim(identity, canDeleteProcessModel);
+    await this.ensureUserHasClaim(identity, canDeleteProcessModel);
 
     await this.processModelService.deleteProcessDefinitionById(processModelId);
     await this.correlationService.deleteCorrelationByProcessModelId(identity, processModelId);
@@ -76,6 +77,26 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
 
   public async getProcessModels(identity: IIdentity): Promise<Array<Model.Process>> {
     return this.processModelService.getProcessModels(identity);
+  }
+
+  private async ensureUserHasClaim(identity: IIdentity, claimName: string): Promise<void> {
+
+    const userIsSuperAdmin = await this.checkIfUserIsSuperAdmin(identity);
+    if (userIsSuperAdmin) {
+      return;
+    }
+
+    await this.iamService.ensureHasClaim(identity, claimName);
+  }
+
+  private async checkIfUserIsSuperAdmin(identity: IIdentity): Promise<boolean> {
+    try {
+      await this.iamService.ensureHasClaim(identity, superAdminClaim);
+
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 
 }
