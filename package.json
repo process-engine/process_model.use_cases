@@ -17,7 +17,7 @@
     "@essential-projects/errors_ts": "^1.4.3",
     "@process-engine/correlation.contracts": "^2.0.0",
     "@process-engine/external_task_api_contracts": "^1.0.0",
-    "@process-engine/flow_node_instance.contracts": "^1.0.0",
+    "@process-engine/flow_node_instance.contracts": "^2.0.0",
     "@process-engine/process_model.contracts": "^2.0.0"
   },
   "devDependencies": {
