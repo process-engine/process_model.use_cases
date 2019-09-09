@@ -1,7 +1,7 @@
 import {IIAMService, IIdentity} from '@essential-projects/iam_contracts';
 
+import {IExternalTaskRepository} from '@process-engine/consumer_api_contracts';
 import {ICorrelationService} from '@process-engine/correlation.contracts';
-import {IExternalTaskRepository} from '@process-engine/external_task_api_contracts';
 import {IFlowNodeInstanceService} from '@process-engine/flow_node_instance.contracts';
 import {
   IProcessModelService,
