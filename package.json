@@ -1,17 +1,25 @@
 {
   "name": "@process-engine/process_model.use_case",
-  "publishConfig": {
-    "registry": "https://www.npmjs.com"
-  },
   "version": "1.4.0",
   "description": "Contains the UseCase layer for the ProcessModel API.",
-  "license": "MIT",
   "main": "dist/commonjs/index.js",
   "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/process-engine/process_model.use_case.git"
+  },
   "author": "5Minds IT-Solutions GmbH & Co. KG",
-  "contributors": [
-    "Christian Werner <christian.werner@5minds.de>"
+  "maintainers": [
+    "Alexander Kasten <alexander.kasten@5minds.de>",
+    "Christian Werner <christian.werner@5minds.de>",
+    "René Föhring <rene.foehring@5minds.de>",
+    "Steffen Knaup <steffen.knaup@5minds.de>"
   ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/process-engine/process_model.use_case/issues"
+  },
+  "homepage": "https://github.com/process-engine/process_model.use_case#readme",
   "dependencies": {
     "@essential-projects/iam_contracts": "^3.4.1",
     "@essential-projects/errors_ts": "^1.4.3",

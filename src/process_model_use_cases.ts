@@ -29,7 +29,6 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
     iamService: IIAMService,
     processModelService: IProcessModelService,
   ) {
-
     this.correlationService = correlationService;
     this.externalTaskRepository = externalTaskRepository;
     this.flowNodeInstanceService = flowNodeInstanceService;
@@ -50,7 +49,6 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
     const processModel = await this.processModelService.getByHash(identity, correlationProcessModel.processModelId, correlationProcessModel.hash);
 
     return processModel;
-
   }
 
   public async deleteProcessModel(identity: IIdentity, processModelId: string): Promise<void> {
