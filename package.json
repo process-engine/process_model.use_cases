@@ -15,10 +15,10 @@
   "dependencies": {
     "@essential-projects/iam_contracts": "^3.4.1",
     "@essential-projects/errors_ts": "^1.4.3",
-    "@process-engine/consumer_api_contracts": "^8.0.0",
-    "@process-engine/correlation.contracts": "^2.0.0",
-    "@process-engine/flow_node_instance.contracts": "^2.0.0",
-    "@process-engine/process_model.contracts": "^2.0.0"
+    "@process-engine/consumer_api_contracts": "feature~add_limit_and_offset_to_list_queries",
+    "@process-engine/correlation.contracts": "feature~add_limit_and_offset_to_list_queries",
+    "@process-engine/flow_node_instance.contracts": "feature~add_limit_and_offset_to_list_queries",
+    "@process-engine/process_model.contracts": "feature~add_limit_and_offset_to_list_queries"
   },
   "devDependencies": {
     "@essential-projects/eslint-config": "^1.0.0",
