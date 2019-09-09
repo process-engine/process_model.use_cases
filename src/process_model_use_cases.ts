@@ -37,6 +37,10 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
     this.processModelService = processModelService;
   }
 
+  public async getProcessModels(identity: IIdentity, offset: number = 0, limit: number = 0): Promise<Array<Model.Process>> {
+    return this.processModelService.getProcessModels(identity, offset, limit);
+  }
+
   public async getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Model.Process> {
 
     const correlation = await this.correlationService.getByProcessInstanceId(identity, processInstanceId);
@@ -73,10 +77,6 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
 
   public async getByHash(identity: IIdentity, processModelId: string, hash: string): Promise<Model.Process> {
     return this.processModelService.getByHash(identity, processModelId, hash);
-  }
-
-  public async getProcessModels(identity: IIdentity): Promise<Array<Model.Process>> {
-    return this.processModelService.getProcessModels(identity);
   }
 
   private async ensureUserHasClaim(identity: IIdentity, claimName: string): Promise<void> {
