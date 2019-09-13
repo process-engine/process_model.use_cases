@@ -1,7 +1,7 @@
 import {IIAMService, IIdentity} from '@essential-projects/iam_contracts';
 
+import {IExternalTaskRepository} from '@process-engine/consumer_api_contracts';
 import {ICorrelationService} from '@process-engine/correlation.contracts';
-import {IExternalTaskRepository} from '@process-engine/external_task_api_contracts';
 import {IFlowNodeInstanceService} from '@process-engine/flow_node_instance.contracts';
 import {
   IProcessModelService,
@@ -29,12 +29,15 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
     iamService: IIAMService,
     processModelService: IProcessModelService,
   ) {
-
     this.correlationService = correlationService;
     this.externalTaskRepository = externalTaskRepository;
     this.flowNodeInstanceService = flowNodeInstanceService;
     this.iamService = iamService;
     this.processModelService = processModelService;
+  }
+
+  public async getProcessModels(identity: IIdentity, offset: number = 0, limit: number = 0): Promise<Array<Model.Process>> {
+    return this.processModelService.getProcessModels(identity, offset, limit);
   }
 
   public async getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Model.Process> {
@@ -46,7 +49,6 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
     const processModel = await this.processModelService.getByHash(identity, correlationProcessModel.processModelId, correlationProcessModel.hash);
 
     return processModel;
-
   }
 
   public async deleteProcessModel(identity: IIdentity, processModelId: string): Promise<void> {
@@ -73,10 +75,6 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
 
   public async getByHash(identity: IIdentity, processModelId: string, hash: string): Promise<Model.Process> {
     return this.processModelService.getByHash(identity, processModelId, hash);
-  }
-
-  public async getProcessModels(identity: IIdentity): Promise<Array<Model.Process>> {
-    return this.processModelService.getProcessModels(identity);
   }
 
   private async ensureUserHasClaim(identity: IIdentity, claimName: string): Promise<void> {
