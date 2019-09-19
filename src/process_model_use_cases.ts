@@ -42,11 +42,9 @@ export class ProcessModelUseCases implements IProcessModelUseCases {
 
   public async getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Model.Process> {
 
-    const correlation = await this.correlationService.getByProcessInstanceId(identity, processInstanceId);
+    const processInstance = await this.correlationService.getByProcessInstanceId(identity, processInstanceId);
 
-    const correlationProcessModel = correlation.processInstances.pop();
-
-    const processModel = await this.processModelService.getByHash(identity, correlationProcessModel.processModelId, correlationProcessModel.hash);
+    const processModel = await this.processModelService.getByHash(identity, processInstance.processModelId, processInstance.hash);
 
     return processModel;
   }
