@@ -1,6 +1,6 @@
 {
   "name": "@process-engine/process_model.use_case",
-  "version": "1.4.0-beta.1",
+  "version": "1.4.0-beta.2",
   "description": "Contains the UseCase layer for the ProcessModel API.",
   "main": "dist/commonjs/index.js",
   "typings": "dist/index.d.ts",
