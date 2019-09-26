@@ -1,6 +1,6 @@
 {
   "name": "@process-engine/process_model.use_case",
-  "version": "1.4.0-beta.3",
+  "version": "1.4.0",
   "description": "Contains the UseCase layer for the ProcessModel API.",
   "main": "dist/commonjs/index.js",
   "typings": "dist/index.d.ts",
@@ -24,7 +24,7 @@
     "@essential-projects/iam_contracts": "^3.4.1",
     "@essential-projects/errors_ts": "^1.4.3",
     "@process-engine/consumer_api_contracts": "9.0.0-beta.1",
-    "@process-engine/correlation.contracts": "2.2.0-beta.1",
+    "@process-engine/correlation.contracts": "3.0.0-beta.2",
     "@process-engine/flow_node_instance.contracts": "2.1.0-beta.1",
     "@process-engine/process_model.contracts": "2.7.0-beta.1"
   },
